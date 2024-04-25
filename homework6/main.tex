@@ -1,0 +1,147 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage{wasysym}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\makeatletter
+\usepackage{titling}
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+\makeatletter
+\newcommand\setItemnumber[1]{\setcounter{enum\romannumeral\@enumdepth}{\numexpr#1-1\relax}}
+\makeatother
+\title{MATH 302: Homework 6}
+\subtitle{Case Western Reserve University}
+\author{Rohan Rajappan \\rohan@case.edu}
+
+\date{March 27, 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Section 5.2}
+\paragraph{Problems: 3, 7, 12, 29}
+\begin{enumerate}
+    \setItemnumber{3}
+    \item For each positive integer, $n$, let $P(n)$ be the formula:\\ $1^2+2^2+...+n^2 = \frac{n(n+1)(2n+1)}{6}$
+    \begin{enumerate}
+        \item $P(1): 1 = \frac{1*2*3}{6} = 1, P(1)$ is true.
+        \item $P(k): 1^2+2^2+...+k^2 = \frac{k(k+1)(2k+1)}{6} $
+        \item $P(k+1):1^2+2^2+...+(k+1)^2$. We want to show this equals $\frac{(k+1)((k+1)+1)(2(k+1)+1)}{6}$
+        \item First, we show that $P(2)$ is true. $1^2+2^2 = 5$ and $\frac{2*(3)*(5)}{6} = 5$. Thus, $P(2)$ is true.\\
+        We assume that $P(k)$ is true and $1^2+2^2+...+k^2 = \frac{k(k+1)(2k+1)}{6}$. \\
+        Next, we want to prove that $P(k+1)$ is true to prove this by mathematical induction. $P(k+1)=1^2+2^2+...+(k+1)^2 =1^2+2^2+...+k^2+(k+1)^2 $ \\
+        Since we know $P(k)$ is true, we can substitute that in. \\Thus, $P(k+1) = \frac{k(k+1)(2k+1)}{6}+(k+1)^2 $.\\
+        And $P(k+1) = (k+1)[\frac{k(2k+1)}{6}+(k+1)] = (k+1)[\frac{2k^2+k+6k+6}{6}] = (k+1)[\frac{(2k+3)(k+2)}{6}]$\\
+        Looking back on what we want to prove, we want to show that $P(k+1) = \frac{(k+1)((k+1)+1)(2(k+1)+1)}{6} = (k+1)\frac{(k+2)(2k+3)}{6}$\\
+        Thus, we have shown that \\$P(k+1): 1^2+^2+...+(k+1)^2 = (k+1)\frac{(k+2)(2k+3)}{6}$. \\And by mathematical induction, $\forall n\in\mathbb{Z}, n\geq2, P(n) = \frac{n(n+1)(2n+1)}{6}$
+    \end{enumerate}
+    \setItemnumber{7}
+    \item \textbf{Prove: } $\forall n\in\mathbb{Z}, n\geq1, 1+6+11+16+...+(5n-4)=\frac{n(5n-3)}{2}$\\
+    First, we prove that for n=1, $P(n)$ is true. $P(n): 1 = \frac{1(5-3)}{2}$ is true.\\
+    Thus, we assume that for some $k\geq1, P(k)$ is true. In other words, $1+6+11+16+...+(5k-4) = \frac{k(5k-3)}{2}$ for any $k\geq1$\\
+    We want to show that this is also true for $P(k+1)$ and show that $P(k+1) = \frac{(k+1)(5(k+1)-3)}{2} = (k+1)[\frac{5k+2}{2}]$. \\
+    We begin by writing $P(k+1) = 1+6+11+16+...+(5(k+1)-4) $\\$= 1+6+11+16+...+(5k-4)+(5(k+1)-4) $\\$= 1+6+11+15...+(5k-4)+(5k+1)$\\
+    We can use our assumption to rewrite this as $P(k+1) = \frac{k(5k-3)}{2} + (5k+1)$ $= \frac{5k^2-3k}{2}+\frac{10k+2}{2}$ $=\frac{5k^2+7k+2}{2} = \frac{(5k+2)(k+1)}{2} = (k+1)[\frac{5k+2}{2}]$\\
+    Thus, we find that $P(k+1) = (k+1)[\frac{5k+2}{2}]$, which is what we sought to prove. As such, this is proven by mathematical induction.
+
+    \setItemnumber{12}
+    \item \textbf{Prove: } $\forall n\in\mathbb{Z}, n\geq1,\frac{1}{1*2}+\frac{1}{2*3}+...+\frac{n}{n(n+1)} = \frac{n}{n+1}$\\
+    First, we must prove that $P(1)$ is true. $P(1)=\frac{1}{1*2} = \frac{1}{2}$ is a true statement.
+    Next,  we assume that for some $k\in\mathbb{Z}, k\geq1, P(k)$ is true. We write this as:\\$\frac{1}{1*2}+\frac{1}{2*3}+...+\frac{1}{k(k+1)} = \frac{k}{k+1}$\\
+    We now must prove that this holds true for $P(k+1) = \frac{k+1}{k+2}$ \\
+    We write $P(k+1) =\frac{1}{1*2}+\frac{1}{2*3}+...+\frac{1}{k(k+1)}+\frac{(1)}{(k+1)((k+1)+1)} \\= \frac{1}{1*2}+\frac{1}{2*3}+...+\frac{1}{k(k+1)}+\frac{1}{(k+1)(k+2)} $\\
+    We rewrite this using $P(k)$ as $P(k+1)=\frac{k}{k+1}+\frac{1}{(k+2)(k+1)} \\= \frac{k(k+2)}{(k+1)(k+2)}+\frac{1}{(k+2)(k+1)} = \frac{k^2+2k+1}{(k+1)(k+2)}=\frac{(k+1)^2}{(k+1)(k+2)}=\frac{k+1}{k+2}$. \\This is what we expected to solve as $P(k+1)$, and this is thus proven by mathematical induction. 
+
+    \setItemnumber{29}
+    \item Write the sequence in closed form: $1-2+2^2-2^3+...+(-1)^n*2^n$\\
+    $= \frac{(-1)^{k+1}-1}{-2}*\frac{2^{k+1}-1}{1}$
+\end{enumerate}
+   
+\section{Section 5.3}
+\paragraph{Problems: 4, 7, 15}
+\begin{enumerate}
+    \setItemnumber{4}
+    \item For each positive integer $n$, let $P(n)$ be the sentence that describes the following divisibility property:\\ $5^n-1$ is divisible by $4$.
+    \begin{enumerate}
+        \item $P(0) = 5^0-1 = 4, 4\mid4$. Thus, $P(0)$ is true
+        \item $P(k) = 5^k-1$, we will assume that $P(k)$ is true. In other words, we will assume $4\mid5^n-1$
+        \item $P(k+1) = 5^{k+1}-1$ We seek to prove that $4\mid P(k).$
+        \item The inductive step must assume that $P(k)$ is true and prove that $4\mid5^{k+1}-1$ for any $k\geq0$. That proves that this predicate is true for all values of $n\in\mathbb{Z},n\geq0$ 
+     \end{enumerate}
+    \setItemnumber{7}
+    \item For each positive integer $n$, let $P(n)$ be the sentence:\\
+    In any round-robin tournament involving $n$ teams, the teams can be labeled $T_1, T_2, T_3,...,T_n,$ so that $T_i$ beats $T_{i+1}$ for every $i=1,2,...,n.$
+    \begin{enumerate}
+        \item $P(2)$ is a case with teams $T_1,T_2$ and $T_1$ beats $T_2$.
+        \item $P(k)$ is a tournament in which there are teams $T_1,T_2,...,T_k$. We assume that the teams are ordered in such a way that the $T_1$ is in first place.
+        \item $P(k+1) = T_1,T_2,...,T_k,T_{k+1}$.
+        \item In the inductive step, you assume that there is a value $k, k\geq2$ and you must prove that $P(k)\implies P(k+1)$. In other words, if $P(k)$ is true, you must prove that $P(k+1)$ is also true. 
+    \end{enumerate}
+    \setItemnumber{15}
+    \item \textbf{Prove by Mathematical Induction: }$n(n^2+5)$ is divisible by 6, for each integer $n\geq0$\\
+    First, verify that $P(0)$ is true: $P(0) = 0(0+5) = 0, 6\mid0$. Therefore, $P(0)$ is true.\\
+    Next, assume that $P(k)$ is true such that $P(k) = k(k^2+5), 6\mid k(k^2+5)$
+    We must prove that $6\mid P(k+1)$. We write $P(k+1) = (k+1)((k+1)^2+5)\\=(k+1)(k^2+2k+6)=(k^3+2k^2+6k+k^2+2k+6)=(k^3+3k^2+8k+6)\\=(k^3+5k)+(3k^2+3k+6)$
+    Since we know that $k^3+5k$ is divisible by 6 (as made in our assumption), we can rewrite this as $6r$ where r is any integer. We also rewrite the other portion as\\
+    $6(\frac{3n(n+1)}{2}+1)$ Thus, we can rewrite everything as \\$P(k+1) = 6(r+(\frac{3n(n+1)}{2}+1)$. We also know that in any case, the numerator in our fraction will be divisible by two since $n+1$ or $n$ MUST be positive. As such, we can rewrite $P(k+1) as 6(r+k)$ where $r$ and $k$ are arbitrary integers. Thus, we know that $6\mid P(k+1).$ Thus, by mathematical induction, $\forall n\geq0, 6\mid P(n).$
+\end{enumerate}
+
+\section{Section 5.4}
+\paragraph{Problems: 10, 13, 16, 17}
+\begin{enumerate}
+    \setItemnumber{10}
+    \item ``The introductory example solved with ordinary mathematical induction in Section 5.3 can also be solved using strong mathematical induction. Let $P(n)$ be “any n¢ can be obtained using a combination of 3¢ and 5¢ coins.” Use strong mathematical induction to prove that $P(n)$ is true for every integer $n\geq8$."\\
+    First, we test that $P(8)$ is valid. We can verify it is true as $1*5\cent+1*3\cent= 8\cent$.
+    Next, we assume that $P(k)$ and the set $\{P(a),P(a+1),...,P(k)\}$ is all true, where $a=8$.\\
+    We now seek to represent $P(k+1)$ in cents. We know that any integer $k\geq a$ exists in this format. Every number can also be rewritten as a sum of two numbers smaller than it. For instance,we can rewrite $P(k+1)$ as $P(k-2) + 3\cent$. Since $P(k-2)$ is defined in our assumption set, we know it must exist. As such, we can prove that any integer $k\geq8$ can be represented with $3\cent$ and $5\cent$ coins.
+
+    \setItemnumber{13}
+    \item ``Use strong mathematical induction to prove the existence part of the unique factorization of integers theorem (Theorem 4.4.5). In other words, prove that every integer greater than 1 is either a prime number or a product of prime numbers."
+    First, we prove that $P(a)=P(2)$ is true. We know that $2=1*2$, so $2$ can be rewritten as a product of prime number.
+    Next, we assume that $P(k)$ can be defined as a product of prime numbers and thus the set of $\{P(a),P(a+1),...,P(k)\}$ is defined as true. We seek to show that $P(k+1)$ is true.
+    We split this into two cases: $P(k+1)$ is prime or not prime.\\
+    If $P(k+1)$ is prime, then we are done as it can be written as itself$*1$.\\
+    If $P(k+1)$ is not prime, we know that $P(k+1)$ must be a product of two numbers that are smaller than it. We will let these be $P(k+1) = r*s$. Since $(k+1)>r,s$, we know that $r,s$ must be in the assumption set. As such, $P(k+1)$ can be rewritten as products of $r$ and $s$ and can be rewritten with their respective factorization multiplied together.
+
+    \setItemnumber{16}
+    \item ``Use strong mathematical induction to prove that for every integer $n\geq2$, if $n$ is even, then any sum of $n$ odd integers is even, and if $n$ is odd, then any sum of $n$ odd integers is odd. "
+
+    We first begin by testing if $P(2)$ is true. We can add 2 odd numbers, $3+1 = 4$ and verify that the sum of 2 odd integers is even.
+    We then assume that this is true for $P(k)$, where $k$ is any integer $k\geq2$. We assume that the entire set from $a=2$ to $k$ is true, such that $\{P(a), P(a+1),...,P(k)\}$ is true. We can prove $P(k+1)$ as true by splitting into two cases.\\
+    Case 1: $k$ is odd. If $k$ is odd, we know that $k+1$ must be even. We also know that since $P(k)$ is in the assumption set, $P(k)$ must be odd. Thus, $P(k+1)$ must add any arbitrary odd integer to this set. We know that the summation of any two odd integers must be even. Thus, $P(k+1)$ is true when $k+1$ is even and $k$ is odd.\\
+    Case 2: $k$ is even. If $k$ is even, we know that $k+1$ must be odd. We also know that since $P(k)$ is in the assumption set, $P(k)$ must be even. Thus, $P(k+1)$ must add any arbitrary odd integer to this set. We know that the summation of any odd and any even numbers must be odd. Thus, $P(k+1)$ is also true when $k+1$ is odd and $k$ is even.
+
+    \item Compute $4^1, 4^2, 4^3, 4^4, 4^5, 4^6, 4^7, 4^8$ Make a conjecture about the units digit of $4^n$ where $n$ is a positive integer. Use strong mathematical induction to prove your conjecture.\\ $4^1 = 4; 4^2=16; 4^3=64; 4^4=256;\\ 4^5=1024; 4^6=4096; 4^7=16384; 4^8=65536.$\\
+    \textbf{Conjecture:} For any $n\in\mathbb{Z},n\geq1,4^n$ is 4 if $n$ is odd and is 6 if $n$ is even. 
+    \textbf{Base Cases:} Let $n=1, P(n)=4^1 = 4$. Thus, the units digit is 4.\\ Let $n=2, P(n)=4^2=16$. Thus the units digit is 6.\\
+    \textbf{Inductive Step:} Let $k$ be any integer, $k\geq1$. We assume that $P(n)$ is true for all $4\leq n\leq k$. In other words, we define the set $\{P(a),P(a+1),...,P(k)\}$ to be true, where $a=1$. We now seek to prove $P(k+1) = 4^{k+1}$ We can rewrite this as $4*4^k$ We then split this into two cases:\\
+    Case 1: $k$ is even. We know by the assumption set that if $k$ is even, the units digit will be 6. As such, we know that we will multiply this number by 4. In any case, $4*6=24$, which has a units digit of 4.\\
+    Case 2: $k$ is odd. Since $k$ is in the assumption set, we know that if $k$ is odd, then $P(k)$ states that the units digit will be 4. As such, we have $4*4$, which results in a units place of 6.
+\end{enumerate}
+
+\section{Section 5.6}
+\paragraph{Problems: 4, 12}
+\begin{enumerate}
+\setItemnumber{4}
+    \item $d_k=k(d_{k-1})^2;d_0=3$. The next four terms are: $d_1=9;d_2=162;\\d_3=52488;d_4=5509980288.$
+    \setItemnumber{12}
+    \item Let $s_0,s_1,s_2,...$ be defined by the formula $s_n=\frac{(-1)^n}{n!}$ for every integer $n\geq0.$  Show that this sequence satisfies the following recurrence relation for every integer $k\geq1:   s_k=\frac{-s_{k-1}}{k}$\\
+    We know that $s_k$ can be written as $s_k=\frac{(-1)^k}{k!}$. Thus, we can rewrite $s_{k-1} = \frac{(-1)^{k-1}}{(k-1)!}$\\
+    We rewrite the recurrence relation with the definitions provided above as $\frac{s_{k-1}}{k} = \frac{-\frac{(-1)^{k-1}}{(k-1)!}}{k}$ and simplify:\\
+    $=-\frac{(-1)^{k-1}}{k(k-1)!}\\=\frac{(-1)^k}{k!}$ \\
+    We find that this is equivalent to the initial equation provided to us and have thus proven this relation to be true.
+\end{enumerate}
+
+\end{document}
