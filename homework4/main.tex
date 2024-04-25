@@ -1,0 +1,107 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{titling}
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+\makeatletter
+\newcommand\setItemnumber[1]{\setcounter{enum\romannumeral\@enumdepth}{\numexpr#1-1\relax}}
+\makeatother
+\title{MATH 302: Homework 4}
+\subtitle{Case Western Reserve University}
+\author{Rohan Rajappan \\rohan@case.edu}
+
+\date{February 19, 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{4.1}
+ \paragraph{Problems: 9, 11, 25}
+ \begin{enumerate}
+     \setItemnumber{9}
+     \item \textbf{Prove:} There is a real number $x$ such that $x>1$ and $2^x > x^{10}$
+
+     Since this is an existential statement, we only need to prove one case of this being true. One number that works in this statement is$x=100$ as $100>1$ and $2^{100}>100^{10}$. Thus we have proven that $\exists n \in \mathbb{R}$ such that $n>1 \land 2^n>n^{10}$
+     \setItemnumber{11}
+     \item \textbf{Prove:} There is an integer $n$ such that $2n^2-5n+2$ is prime. This is an existential statement, so we only need to prove one case of $n$ existing. If we let $n=0$, our expression becomes $2(0)^2-5(0)+2$. This simplifies to $2$ and $2\in\mathbb{P}$. Thus we have proven that $\exists n$ such that $2n^2-5n+2 \in \mathbb{P}$ by using the case that $n=0$
+
+     \setItemnumber{25}
+     \item For all integers $m$ and $n$, if $mn=1$ then $m=n=1$ or $m=n=-1$.
+     \begin{enumerate}
+         \item \textbf{Rewrite into if-then form:} If the product of two integers is 1, then both numbers must be 1 or both numbers must be -1.
+         \item \textbf{First statement:} Let $m, n \in\mathbb{Z}$ and $mn=1$ \\
+         \textbf{Last statement:} Thus, $m=n=1$ or $m=n=-1$
+     \end{enumerate}
+ \end{enumerate}
+ 
+  
+\section{4.2}
+\paragraph{Problems: 13, 27}
+\begin{enumerate}
+    \setItemnumber{13}
+    \item \textbf{Disprove: }There exists an integer n such that $6n^2+27$ is prime. \\
+    \begin{enumerate}
+        \item To disprove this, we must prove that $\forall n\in\mathbb{Z}, 6n^2+27\not\in\mathbb{P}$.
+        \item We begin by factoring the original expression into $3(2n^2+9)$.
+        \item We know that the inner part of this expression, $2n^2+9$, will always be an integer as the square of an integer is an integer and the sum of two integers is also an integer.
+        \item Thus, we denote the inner expression and let $k = 2n^2+9$. We can thus rewrite the original expression as $3k$ where $k\in\mathbb{Z}$. 
+        \item We also know that $k\geq11$. The $2n^2$ part of k must be at least 2 because any negative number becomes positive and $2*1^2$ = 2. Adding 9 to that minimum, we find that $k\geq$ 11.
+        \item If $k$ is any integer where $k\geq 11$, then $3k$ is the final expression. Since $3k$ is the final expression, we know that it cannot be a prime number as our final expression will always be divisible by 3.
+        \item Thus, we have proven that $\forall n \in\mathbb{Z}, 6n^2+27\not\in\mathbb{P}$.
+    \end{enumerate}
+    \setItemnumber{27}
+    \item \textbf{Prove or Disprove: }The difference of any two odd integers is even.
+    \begin{enumerate}
+        \item Let m and n be any two odd integers. Thus, we let $m = 2r+1$ and $k=2s+1$ where $r$ and $s$. We must prove that $m-n$ is even. In other words, we must prove that $\frac{m-n}{2} \in\mathbb{Z}$.
+        \item First, we can rewrite $m-n$ as $2r+1-(2s+1) = 2r+1-2s-1 = 2r-2s$
+        \item We can then factor out a 2 to state that $m-n = 2(r-s)$. We can thus determine that $m-n$ will always be a multiple of 2 and is thus divisible by 2.
+        \item As such, we now know that $\forall m,n\in\mathbb{Z}$, where m and n are odd, $\frac{m-n}{2} \in\mathbb{Z}$. In other words, the difference of any two integers is even.
+    \end{enumerate}
+\end{enumerate}
+
+\section{4.3}
+\paragraph{Problems: 2, 7}
+\begin{enumerate}
+    \setItemnumber{2}
+    \item $4.6037 = \frac{46307}{10000}$
+    \setItemnumber{7}
+    \item $52.4672167216721\dots \rightarrow$ Let $x = 52.4672167216721\dots \rightarrow 100,000x = 5246721.672167216721\dots$ Thus, $100000x - 10x = 99990x = 5246197$. Thus, $x = \frac{5246197}{99990}$
+\end{enumerate}
+
+\section{4.4}
+\paragraph{Problems: 5, 16, 21, 35}
+\begin{enumerate}
+    \setItemnumber{5}
+    \item Is $6m(2m+10)$ divisible by 4? \\ $6m(2m+10) = 12m(m+5) = 4(3m(m+5))$ Thus, this expression is divisible by 4 as we can factor out a 4.
+    \setItemnumber{16}
+    \item \textbf{Prove: }For all integers $a$, $b$, and $c$, if $a\mid b$ and $a\mid c$ then $a \mid (b-c)$.\\
+    \begin{enumerate}
+        \item Since $a\mid c$, we can rewrite $c$ as $c = aq$ where $q$ is any integer. Likewise, we rewrite $c$ as $c=ar$ where $r$ is any integer.
+        \item Thus, we rewrite  $b-c$ as $aq - ar = a(q-r)$.
+        \item From this, we know that $a$ is a factor of $b-c$. As such, we know that $a(q-r)$ must be divisible by $a$, from the definition of divisibility. This is true because $q-r$ can be rewritten as any integer, $k$. Thus, we are essentially checking if $a \mid ak$ which is true from the definition of divisibility.
+        \item Thus, since $ak = b-c$, we know that $a \mid (b-c)$.
+    \end{enumerate}
+    \setItemnumber{21}
+    \item \textbf{Prove of Disprove: }The product of any two even integers is a multiple of 4.
+    \begin{enumerate}
+        \item Let $m$ and $n$ be any two even integers. By definition of an even integer, $m = 2r$ and $n = 2q$ for any $r, q \in\mathbb{Z}$.
+        \item Thus, $mn = 2r*2q$, thus $mn = 4rq$.
+        \item If we let $rq$ equal any positive integer, $k$, we can state that $k$ is divisible by 4. In other words, $4k$ is a multiple of 4.
+        \item Since $4k = 4rq = mn$, we can state that $mn$ is thus a multiple of 4.
+    \end{enumerate}
+    \setItemnumber{35}
+    \item Two athletes run a circular track at a steady pace so that the first completes one round in 8 minutes and the second in 10 minutes. If they both start from the same spot at 4 p.m., when will be the first time they return to the start together? \\ \\
+    The time at which they meet will be the least common multiple of the two numbers. We can divide both numbers by two and state that they each complete half a lap in 5 and 8 minutes respectively. The least common multiple of 5 and 8 is 40. Thus, they will meet in 40 minutes. This will be runner 1's 4th lap (8/2) and runner 2's 2.5th lap (5/2). 
+\end{enumerate}
+
+\end{document}
