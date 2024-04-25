@@ -1,0 +1,334 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+
+\usepackage{titling}
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+\makeatletter
+\newcommand\setItemnumber[1]{\setcounter{enum\romannumeral\@enumdepth}{\numexpr#1-1\relax}}
+\makeatother
+\title{MATH 304: Homework 2}
+\subtitle{Case Western Reserve University}
+\author{Rohan Rajappan \\rohan@case.edu}
+
+\date{February 5, 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Section 2.1}
+ \paragraph{Problems: 2, 5bc, 8be,10be, 15, 19, 20, 22, 24, 29, 35, 43, 49, 51}
+
+
+
+\begin{enumerate}
+  \setItemnumber{2}
+  \item
+  \begin{enumerate}
+    \item If all computer programs contain errors, then this program contains an error. This program does not contain an error. Therefore, it is not the case that all computer programs contain errors\\\\
+    This is in the form of p$\rightarrow$q: $\sim$q, thus $\sim$p
+    \item If all \underline{prime numbers are odd}, then \underline{2 is odd}.\\2 is not odd.\\Therefore, it is not the case that all prime numbers are odd.
+  \end{enumerate}
+  \setItemnumber{5}
+  \item 
+  \begin{enumerate}
+      \setItemnumber{2}
+      \item ``She is a mathematics major" is not a statement as it can be both true and false.
+      \item``128=2$^6$" is a statement as it is only false.
+  \end{enumerate}
+  \setItemnumber{8}
+  \item Let h = ``John is healthy,” w = ``John is wealthy,” and s = ``John is wise.”
+  \begin{enumerate}
+      \item John is healthy and wealthy but not wise. $\rightarrow$ $($h$\land$w$ $)$\land$$\sim$s
+      \item John is not wealthy but he is healthy and wise. $\rightarrow$ $\sim$w$\land$ $($h$\land$s$)$
+      \item John is neither healthy, wealthy, nor wise. $\rightarrow$ $\sim$h $\land$ $\sim$w $\land$ $\sim$s
+      \item John is neither wealthy nor wise, but he is healthy. $\rightarrow$ $\sim$$($w $\lor$ s$)$ $\land$ h
+      \item John is wealthy, but he is not both healthy and wise. $\rightarrow$  w $\sim$ $($h$\land$w$)$
+  \end{enumerate}
+  \setItemnumber{10}
+  \item Let p be the statement ``DATAENDFLAG is off,” q the statement ``ERROR equals 0,” and r the statement ``SUM is less than 1,000.” Express the following sentences in symbolic notation.
+  \begin{enumerate}
+      \setItemnumber{2}
+      \item p $\land$ $\sim$q
+      \setItemnumber{5}
+      \item $\sim$p $\lor$ $($q$\land$r$)$
+  \end{enumerate}
+  \setItemnumber{15}
+  \item Truth Table:\\
+  \begin{math} 
+  \begin{array}{|ccc|c|}
+    p&q&r&p \land (\sim q \lor r) \\
+    \hline
+    T&T&T &T \\
+    T&T&F &F\\
+    T&F&T &T\\
+    T&F&F &T\\
+    F&T&T &F \\
+    F&T&F &F\\
+    F&F&T &F\\
+    F&F&F &F\\
+  \end{array}
+  \end{math}
+  \setItemnumber{19}
+  \item p $\land$ \textbf{t} and p\\
+  \\
+  \begin{math} 
+  \begin{array}{|cc|c|}
+    p&\textbf{t}& p \land \textbf{t} \\
+    \hline
+    T&T &T \\
+    F&T &F \\
+  \end{array}
+  \end{math}
+  \\
+  \\
+  Since \textbf{t} is always true, p $\land$ \textbf{t} only depends on p and is thus equivalent to just p. This is known as the idempotent law.
+  %End problem 19
+  \item p $\land$ \textbf{c} and p $\lor$ \textbf{c}
+  \\
+  \begin{math} 
+  \begin{array}{|cc|c|c|}
+    p&\textbf{c}& p \land \textbf{c} & p \lor \textbf{c} \\
+    \hline
+    T&F &F &T\\
+    F&F &F &F\\
+  \end{array}
+  \end{math}
+  \\
+  \\
+  p $\land$ \textbf{c} is equivalent to \textbf{c} as shown by the universal bound law. p $\lor$ \textbf{c} is equivalent to p as shown by the identity law. Thus the question asks if p $\equiv$ \textbf{c}. This, of course, cannot be true as p can be true or false. Thus, p $\not\equiv$ \textbf{c} and further, p $\land$ \textbf{c} $\not\equiv$ p $\lor$ \textbf{c}
+  \setItemnumber{22}
+  \item$ p \land (q \lor r ) $ and $(p \land q) \lor (p \land r)$
+  \\
+  \\
+  \begin{math} 
+  \begin{array}{|ccc|c|c|}
+    p&q&r& p \land (q \lor r ) & (p \land q) \lor (p \land r) \\
+    \hline
+    T&T&T &T &T \\
+    T&T&F &T &T\\
+    T&F&T &T &T\\
+    T&F&F &F &F\\
+    F&T&T &F &F\\
+    F&T&F &F &F\\
+    F&F&T &F &F\\
+    F&F&F &F &F\\
+  \end{array}
+  \end{math}
+  \\
+  As shown by the truth table, these are true. Furthermore, they must be equivalent as $(p \land q) \lor (p \land r)$ is simply the expanded form of $p \land (q \lor r )$ using the distributive law.
+  \setItemnumber{24}
+  \item$ (p \lor q ) \lor (p \land r)$ and $(p \lor q ) \land r$
+  \\
+  \\
+  \begin{math} 
+  \begin{array}{|ccc|c|c|}
+    p&q&r& (p \lor q ) \lor (p \land r) & (p \lor q ) \land r \\
+    \hline
+    T&T&T &T &T \\
+    T&T&F &T &F\\
+    T&F&T &T &T\\
+    T&F&F &T &F\\
+    F&T&T &T &T\\
+    F&T&F &T &F\\
+    F&F&T &F &F\\
+    F&F&F &F &F\\
+  \end{array}
+  \end{math}
+  \\
+  \\
+  These are not equivalent statements as seen by the truth table. Additionally, the second condition could be written as p $\land$ r $\lor$ q $\land$ r using the distributive law. This is not equivalent to (p $\lor$ q ) $\lor$ (p $\land$ r).
+  \setItemnumber{29}
+  \item ``This computer program has a logical error in the first ten lines or it is being run with an incomplete data set" $\rightarrow$ This computer does not have a logical error in the first ten lines and it is not being run with an incomplete data set.
+  \setItemnumber{35}
+  \item $x\leq -1$ or $x>1$ $\rightarrow$ $-1<x\leq1$
+  \setItemnumber{43}
+  \item Is $(\sim p \lor q) \lor (p \land \sim q)$ a tautology or contradiction?\\
+  \begin{math} 
+  \begin{array}{|cc|c|}
+    p&q& (\sim p \lor q) \lor (p \land \sim q)\\
+    \hline
+    T&T &T \\
+    T&F &T \\
+    F&T &T \\
+    F&F &T \\
+  \end{array}
+  \end{math}
+  \\
+  In any given case, the value of $(\sim p \lor q) \lor (p \land \sim q)$ is true. Thus, this statement is a tautology. 
+  \setItemnumber{49}
+  \item Supplying a reason for each step on problem 49.
+  \begin{enumerate}
+      \item This first step is done through the use of the commutative law.
+      \item The $\sim q$ is pulled out using the property of the distributive law.
+      \item $p \land \sim p$ is the definition of a contradiction, thus it is written as \textbf{c}.
+      \item The identity law applies in this case, thus $\sim p \lor \textbf{c}$ $\equiv$ $\sim q$.
+  \end{enumerate}
+  \setItemnumber{51}
+  \item Verify the following: $p \land (\sim q \lor p) \equiv p$
+  \begin{enumerate}
+    \item $\equiv (p \land \sim q) \lor (p \land p)$ by the distributive law.
+    \item $\equiv (p \land \sim q) \lor p $ by the idempotent law.
+    \item $\equiv p \lor (p \land \sim q)$ by the commutative law.
+    \item $\equiv p$ by the absorption law.
+  \end{enumerate}
+\end{enumerate}
+\section{Section 2.2}
+\paragraph{Problems: 2, 8, 14b, 16, 20be, 22be, 23be, 27, 30, 41, 46cd}
+\begin{enumerate}
+    \setItemnumber{2}
+    \item If I catch the 8:05 bus, then I am on time for work.
+    \setItemnumber{8}
+    \item Construct a truth table for $\sim p \lor q \rightarrow r$.\\
+    \\
+    \begin{math} 
+  \begin{array}{|ccc|c|c|}
+    p&q&r& \sim p \lor q & \sim p \lor q \rightarrow r \\
+    \hline
+    T&T&T &T &T \\
+    T&T&F &T &F\\
+    T&F&T &F &T\\
+    T&F&F &F &T\\
+    F&T&T &T &T\\
+    F&T&F &T &F\\
+    F&F&T &T &T\\
+    F&F&F &T &F\\
+  \end{array}
+  \end{math}
+  \\
+  \setItemnumber{14}
+  \item 
+  \begin{enumerate}
+      \setItemnumber{2}
+      \item If n is prime and n is not odd, then n is 2. If n is prime and n is not 2, then n is odd.
+  \end{enumerate}
+  \setItemnumber{16}
+  \item ``If \underline{you paid full price}, \underline{you didn’t buy it at Crown Books}." is in the form of $p \rightarrow q$ where p and q are the underlined portions, respectively. \\
+  ``\underline{You didn’t buy it at Crown Books} or \underline{you paid full price}." is in the form of $p \lor q$ where p and q are the underlined portions, respectively.
+  \setItemnumber{20}
+  \item Writing the negations of statements.
+  \begin{enumerate}
+      \setItemnumber{2}
+      \item Today is New Year's Eve. Tomorrow is not January.
+      \setItemnumber{5}
+      \item x is non-negative. x is not positive and x is not 0.
+  \end{enumerate}
+  \setItemnumber{22}
+  \item Write the contrapositives of the statements from problem 20.
+  \begin{enumerate}
+      \setItemnumber{2}
+      \item If tomorrow is not January, then today is not New Year's Eve.
+      \setItemnumber{5}
+      \item If x is not positive and x is not 0, then x is not non-negative.
+  \end{enumerate}
+  \item Write the converse and inverse of each statement from problem 20.
+  \begin{enumerate}
+      \setItemnumber{2}
+      \item Inverse: If today is not New Year's Eve, then tomorrow is not January. \\
+      Converse: If tomorrow is January, then today is New Year's Eve.
+      \setItemnumber{5}
+      \item Inverse: If x is not non-negative, then x is not positive and x is not zero.\\
+      Converse: If x is positive or x is zero, then x is non-negative.
+  \end{enumerate}
+  \setItemnumber{27}
+  \item Prove that the converse and inverse of a conditional statement are logically equivalent. Assume the statement is p $\rightarrow$ q.\\
+  \begin{math} 
+  \begin{array}{|cc|c|c|}
+    p&q& q \rightarrow p &\sim p \rightarrow \sim q \\
+    \hline
+    T&T &F &T\\
+    T&F &T &T\\
+    F&T &F &F \\
+    F&F &T &T\\
+  \end{array}
+  \end{math}
+  \\
+  As shown by the truth table, the converse and inverse of statement $p \rightarrow q$ are logically equivalent to each other.
+  \setItemnumber{30}
+  \item Truth Table: \\
+  \\
+  \begin{tabular}{|c|c|c|c|c|c|}
+
+  $p$ & $q$ & $r$ & $p \rightarrow (q \rightarrow r)$ & $(p \land q) \rightarrow r$ \\
+  \hline
+  T & T & T & T & T \\
+  T & T & F & T & F \\
+  T & F & T & T & T \\
+  T & F & F & T & F \\
+  F & T & T & T & T \\
+  F & T & F & T & F \\
+  F & F & T & T & T \\
+  F & F & F & T & T \\
+
+\end{tabular}
+  \setItemnumber{41}
+  \item If this triangle has two $45^{\circ}$ angles, then it is a right triangle.
+  \setItemnumber{46}
+  \item If compound X is boiling, then its temperature must be at least $150^{\circ}$ C. 
+  \begin{enumerate}
+      \setItemnumber{3}
+      \item This is not true. This is a rewritten form of the converse.
+      \item This is also not true. This is a rewritten form of the inverse.
+  \end{enumerate}
+\end{enumerate}
+\section{Section 2.3}
+\paragraph{Problems: 4, 9, 23, 29, 32, 40, 44}
+\begin{enumerate}
+    \setItemnumber{4}
+    \item If this graph can be colored with three colors, then it can colored with four colors. \\
+    This graph cannot be colored with four colors\\
+    Modus Tollens: Therefore, this graph is colored with three colors.
+    \setItemnumber{9}
+    \item $\sim r$ is true when $p$ is true, and $q$ and $r$ are false. Therefore, this argument is not valid as it does not always return a true result.
+    \\
+\begin{tabular}{|c|c|c|c|c|c|}
+  $p$ & $q$ & $r$ & $(p \land q) \rightarrow \sim r$ & $p \lor \sim q$ & $\sim q \rightarrow p$ \\
+  \hline
+  T & T & T & F & T & T \\
+  T & T & F & T & T & T \\
+  T & F & T & F & T & T \\
+  T & F & F & T & T & T \\
+  F & T & T & T & F & F \\
+  F & T & F & T & T & F \\
+  F & F & T & T & T & T \\
+  F & F & F & T & T & T \\
+\end{tabular}
+    \setItemnumber{23}
+    \item Oleg is a math major or Oleg is an economics major. 
+    \\If Oleg is a math major, then Oleg is required to take Math 362. 
+    \\ Therefore, Oleg is an economics major or Oleg is not required to take Math 362.
+    \\ Rewritten: $p \lor q, p \rightarrow r,$ Therefore, $p\lor \sim r$ This is given by the division into cases.
+    \setItemnumber{29}
+    \item If at least one of these two numbers is divisible by 6, then the product of these two numbers is divisible by 6.\\
+    Neither of these two numbers is divisible by 6. \\
+    Therefore, the product of these two numbers is not divisible by 6.
+    \\
+    This is a fallacy while using inverses. $\sim p \not\rightarrow \sim q$
+    \setItemnumber{32}
+    \item If I get a Christmas bonus, I’ll buy a stereo. \textbf{p: I get a Christmas bonus, q: I'll buy a stereo} \\
+    If I sell my motorcycle, I’ll buy a stereo. \textbf{r: I sell my motorcycle, q: I'll buy a stereo}\\
+    Therefore, if I get a Christmas bonus or I sell my motorcycle, then I’ll buy a stereo. \textbf{$(p\lor r) \rightarrow q$}\\
+    \setItemnumber{40}
+    \item  Sharky, a leader of the underworld, was killed by one of his own band of four henchmen. Detective Sharp interviewed the men and determined that all were lying except for one. He deduced who killed Sharky on the basis of the following statements:
+    \begin{enumerate}
+        \item Socko: Lefty killed Sharky.
+        \item Fats: Muscles didn’t kill Sharky.
+        \item Lefty: Muscles was shooting craps with Socko when Sharky was knocked off.
+        \item Muscles: Lefty didn’t kill Sharky.
+    \end{enumerate}
+    Pretend that Socko is telling the truth then Fats must also be telling the truth. However, only one person is telling the truth. Thus, Socko is lying. If Socko is lying then Lefty did not kill Sharky, therefore Muscles is the one who is telling the truth and Fats is lying. As such, Muscles killed Sharky.
+    \setItemnumber{44}
+    \item Given the premises that p implies q, r and s are true, ~s implies ~t, ~q and s, ~s, and (~p and r) implies u, as well as the options w or t, we can deduce that s is false, q is false, and consequently, p is false. Utilizing (~p and r) implies u, we establish that u is true. Additionally, from ~s implies ~t, we infer that ~t is true. With the option w or t and the confirmation that t is true, we conclude that w is true. Therefore, the final deduction is that both u and w are true.
+\end{enumerate}
+\newpage
+
+
+\end{document}
