@@ -1,0 +1,144 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage{wasysym}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\makeatletter
+\usepackage{titling}
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+\makeatletter
+\newcommand\setItemnumber[1]{\setcounter{enum\romannumeral\@enumdepth}{\numexpr#1-1\relax}}
+\makeatother
+\title{MATH 302: Homework 7}
+\subtitle{Case Western Reserve University}
+\author{Rohan Rajappan \\rohan@case.edu}
+
+\date{4/22/2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Section 6.1}
+\paragraph{Problems: 1bd, 4, 12ab, 25acdf, 29}
+\begin{enumerate}
+    \item In each of (a)–(f), answer the following questions: Is A $\subseteq$ B? Is B $\subseteq$ A? Is either A or B a proper subset of the other?
+    \begin{enumerate}
+        \setItemnumber{2}
+        \item $A=\{3,\sqrt{5^2-4^2},24\mod{7}\}$, $B = \{8mod25\}$
+        By this, B is a subset of A since 8mod5 is 3, and 3 is in A. B is also a proper subset of A.
+        \setItemnumber{4} A is not a subset of B and B is not a subset of A. The elements of A are all letters; whereas, the elements of B are all sets.
+        \item 
+    \end{enumerate}
+    \setItemnumber{4}
+    \item Let $A = \{n\in\mathbb{Z} \mid n=5r\}, B=\{m\in\mathbb{Z}\mid m=20s\}$ Where $s$ and $r$ are integers.
+    \begin{enumerate}
+        \item Prove or disprove if $A\subseteq B$. If we let $r=1$, we find that 5 is in $A$. We also know that m can be rewritten as $m=5*4*s$. Thus, since we multiply s by 4 and must be an integer, there is no way for 5 to be in $B$. As such, $A\nsubseteq B$.
+        \item Prove or disprove if $B\subseteq A$. Taking the above reasoning, we let $n=5r, m=5*4*s$. We can rewrite m as $m=5*k$ where $k=4s$. Thus, we know that for the same k and s, $n=m$. As such, every element in B must be in A. Therefore $B\subseteq A$.
+    \end{enumerate}
+    \setItemnumber{12}
+    \item 
+    \begin{enumerate}
+        \item $A\cup B = \{x\in\mathbb{R} \mid 0<x\leq4\}$
+        \item $A\cap B = \{x\in\mathbb{R} \mid 1\leq x\leq2\}$
+    \end{enumerate}
+    \setItemnumber{25}
+    \item Let index start at 1.
+    \begin{enumerate}
+        \item $[1,2]$
+        \setItemnumber{3}
+        \item No, $R_1,R_2,...$ are not mutually disjoint as no two of the sets are disjoint.
+        \item  Using information from part a, $\{R_i\subseteq R_1 \forall 1\leq i\leq n\}$
+        \setItemnumber{6}
+        \item $[1,2]$
+    \end{enumerate}
+    \setItemnumber{29}
+    \item Yes, $\{\mathbb{R}^+,\mathbb{R}^-,\{0\}\}$ is a partition of $\mathbb{R}$ as each of the elements in the set are subsets of $\mathbb{R}$.
+\end{enumerate}
+\section{Section 6.2}
+\paragraph{Problems: 17, 18, 25}
+\begin{enumerate}
+    \setItemnumber{17}
+    \item By definition of a subset, every element in A must be in B. $A\cup C$ contains all of the elements in A and C. $B\cup C$ includes all elements in B and C. Since every element in A must be in B, The union of A and C must be a subset of the union of B and C.
+    \item By definition, if $A\subseteq B$, then $\forall x\in A, x\in B$. Additionally, we know that if $x\not\in A$, then $x\in A^C$. As such, we can rewrite this as if $x\in B^C$, then $x\in A^C$. By definition then, $B^C\subseteq A^C$.
+    \setItemnumber{25}
+    \item The mistake is assuming that if $x\in A$, then $x\in A-B$. This is not true, specifically in cases where A and B share elements.
+\end{enumerate}
+
+\section{Section 9.2}
+\paragraph{Problems: 11c, 17ce, 21, 39bd}
+\begin{enumerate}
+\setItemnumber{11}
+    \item
+    \begin{enumerate}
+    \setItemnumber{3}
+    \item How many strings of length 8 start and end with a 1, if the values can be 1 or 0?
+    There would be 6 bits that can change, therefore there are $2^6$ different possibilities.
+    \end{enumerate}
+    \setItemnumber{17}
+    \item 
+    \begin{enumerate}
+        \setItemnumber{3}
+        \item The first digit has 9 options. The second digit has 10 options (0-9), but we subtract one of the digits since this number must have unique digits. We continue this for the next two digits. Thus, the number of integers with unique digits from 1000-9999 is 9*9*8*7 = 4536.
+        \setItemnumber{5}
+        \item We can find that there are 8*8*7*5 = 2240 odd numbers with unique digits. Thus, we find that the probability is $\frac{2240}{8999}$.
+    \end{enumerate}
+    \setItemnumber{21}
+    \item Suppose $A$ is a set with $m$ elements and $B$ is a set with $n$ elements.
+    \begin{enumerate}
+        \item There are $n*m$ relations by definition.
+        \item There are $n^m$ functions by definition.
+        \item From above, the fraction is $\frac{n^m}{n*m}$
+    \end{enumerate}
+    \setItemnumber{39}
+    \item Algorithm has 9 letters and no repeating letters.
+    \begin{enumerate}
+    \setItemnumber{2}
+    \item $9*8*7*6*5*4 = 60480$
+        \setItemnumber{4}
+        \item $7*6*5*4 = 840$
+    \end{enumerate}
+\end{enumerate}
+\section{Section 9.3}
+\paragraph{Problems: 2b, 7cd, 17, 23bc}
+\begin{enumerate}
+    \setItemnumber{2}
+    \item 
+    \begin{enumerate}
+        \setItemnumber{2}
+        \item $256 + (16^3) + (16^4) + (16^5) = 1114368$ possible digits.
+    \end{enumerate}
+    \setItemnumber{7}
+    \item 
+    \begin{enumerate}
+        \setItemnumber{3}
+        \item Total possible passwords: $(50^3) + (50^4) + (50^5) = 318875000$, Number of passwords without repetition: $(50*49*48*47*46) + (50*49*48*47) + (50*49*48) = 259896000$. Thus, the number of passwords with at least one repeat: $318875000-259896000=58979000$
+        \item Probability is chance over total, which thus is $\frac{58979000}{318875000}$.
+    \end{enumerate}
+    \setItemnumber{17}
+    \item 
+    \begin{enumerate}
+        \item $16*15*14*13 = 43680$.
+        \item $16^4$ is total possible, therefore the number of strings that have at least one repeated digit is: $16^4-43680 = 65536-43680 = 21856$.
+        \item The probability is $\frac{21856}{65536}$.
+    \end{enumerate}
+    \setItemnumber{23}
+    \item 
+    \begin{enumerate}
+        \setItemnumber{2}
+        \item The answer to part A is $250+142 - 35 = 357$. Thus, the probability is $\frac{357}{1000}$
+        \item This is the opposite of part A. Therefore, the answer is $1000-357 = 643$.
+    \end{enumerate}
+\end{enumerate}
+\end{document}
